@@ -2,7 +2,7 @@ package OTRS::OPM::Validate;
 
 # ABSTRACT: Validate .opm files
 
-use v5.10;
+use v5.20;
 
 use strict;
 use warnings;
