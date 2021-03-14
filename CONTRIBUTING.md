@@ -5,13 +5,13 @@ The distribution is contained in a Git repository, so simply clone the
 repository
 
 ```
-$ git clone git://github.com/perlservices/OTRS-OPM-Validate.git
+$ git clone git://github.com/perlservices/OPM-Validate.git
 ```
 
 and change into the newly-created directory.
 
 ```
-$ cd OTRS-OPM-Validate
+$ cd OPM-Validate
 ```
 
 The project uses [`Dist::Zilla`](https://metacpan.org/pod/Dist::Zilla) to

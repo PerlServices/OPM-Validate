@@ -5,7 +5,7 @@ use v5.10;
 use strict;
 use warnings;
 
-use OTRS::OPM::Validate;
+use OPM::Validate;
 use File::Basename;
 use File::Glob qw(bsd_glob);
 use Test::More;
@@ -23,7 +23,7 @@ for my $type ( sort keys %opms ) {
     for my $file ( @{ $opms{$type} || [] } ) {
         my $content = do { local ( @ARGV, $/ ) = $file; <> };
         my $success = eval {
-            OTRS::OPM::Validate->validate( $content );
+            OPM::Validate->validate( $content );
             1;
         };
 

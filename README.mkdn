@@ -1,33 +1,31 @@
-[![Build Status](https://travis-ci.org/perlservices/OTRS-OPM-Validate.svg?branch=master)](https://travis-ci.org/perlservices/OTRS-OPM-Validate)
-[![Kwalitee status](http://cpants.cpanauthors.org/dist/OTRS-OPM-Validate.png)](https://cpants.cpanauthors.org/dist/OTRS-OPM-Validate)
-[![GitHub issues](https://img.shields.io/github/issues/perlservices/OTRS-OPM-Validate.svg)](https://github.com/perlservices/OTRS-OPM-Validate/issues)
+[![Build Status](https://travis-ci.org/perlservices/OPM-Validate.svg?branch=master)](https://travis-ci.org/perlservices/OPM-Validate)
+[![Kwalitee status](http://cpants.cpanauthors.org/dist/OPM-Validate.png)](https://cpants.cpanauthors.org/dist/OPM-Validate)
+[![GitHub issues](https://img.shields.io/github/issues/perlservices/OPM-Validate.svg)](https://github.com/perlservices/OPM-Validate/issues)
 
 # NAME
 
-OTRS::OPM::Validate - Validate .opm files - DEPRECATED
+OPM::Validate - Validate .opm files
 
 # VERSION
 
-version 0.05
+version 1.00
 
 # SYNOPSIS
 
-    use v5.10;
-    use OTRS::OPM::Validate;
+    use v5.20;
+    use OPM::Validate;
 
     my $content = 'content of .opm file';
     my $success = eval {
-        OTRS::OPM::Validate->validate( $content );
+        OPM::Validate->validate( $content );
     };
 
     say "It's valid" if $success;
 
 # DESCRIPTION
 
-DEPRECATED - use [OPM::Validate](https://metacpan.org/pod/OPM%3A%3AValidate) instead
-
-_.opm_ files are used as addons for the ((OTRS)) Community Edition. They are
-XML files with specific XML tags.
+_.opm_ files are used as addons for the [Znuny](https://znuny.org), [OTOBO](https://otobo.de) and
+((OTRS)) Community Edition ticketing systems. They are XML files with specific XML tags.
 
 This module checks if all needed XML tags are there.
 
@@ -40,11 +38,11 @@ Currently the error messages might be misleading, this is something we are worki
 This checks the given string if it matches the needs. It `die`s if an error occurs and returns `1` otherwise.
 
     use v5.10;
-    use OTRS::OPM::Validate;
+    use OPM::Validate;
 
     my $content = 'content of .opm file';
     my $success = eval {
-        OTRS::OPM::Validate->validate( $content );
+        OPM::Validate->validate( $content );
     };
 
     say "It's valid" if $success;
@@ -57,13 +55,13 @@ The distribution is contained in a Git repository, so simply clone the
 repository
 
 ```
-$ git clone git://github.com/perlservices/OTRS-OPM-Validate.git
+$ git clone git://github.com/perlservices/OPM-Validate.git
 ```
 
 and change into the newly-created directory.
 
 ```
-$ cd OTRS-OPM-Validate
+$ cd OPM-Validate
 ```
 
 The project uses [`Dist::Zilla`](https://metacpan.org/pod/Dist::Zilla) to

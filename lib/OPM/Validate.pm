@@ -1,6 +1,6 @@
-package OTRS::OPM::Validate;
+package OPM::Validate;
 
-# ABSTRACT: Validate .opm files - DEPRECATED
+# ABSTRACT: Validate .opm files
 
 use v5.20;
 
@@ -418,22 +418,20 @@ sub _grammar {
 
 =head1 SYNOPSIS
 
-    use v5.10;
-    use OTRS::OPM::Validate;
+    use v5.20;
+    use OPM::Validate;
 
     my $content = 'content of .opm file';
     my $success = eval {
-        OTRS::OPM::Validate->validate( $content );
+        OPM::Validate->validate( $content );
     };
 
     say "It's valid" if $success;
 
 =head1 DESCRIPTION
 
-DEPRECATED - use L<OPM::Validate> instead
-
-I<.opm> files are used as addons for the ((OTRS)) Community Edition. They are
-XML files with specific XML tags.
+I<.opm> files are used as addons for the L<Znuny|https://znuny.org>, L<OTOBO|https://otobo.de> and
+((OTRS)) Community Edition ticketing systems. They are XML files with specific XML tags.
 
 This module checks if all needed XML tags are there.
 
@@ -446,11 +444,11 @@ Currently the error messages might be misleading, this is something we are worki
 This checks the given string if it matches the needs. It C<die>s if an error occurs and returns C<1> otherwise.
 
     use v5.10;
-    use OTRS::OPM::Validate;
+    use OPM::Validate;
 
     my $content = 'content of .opm file';
     my $success = eval {
-        OTRS::OPM::Validate->validate( $content );
+        OPM::Validate->validate( $content );
     };
 
     say "It's valid" if $success;

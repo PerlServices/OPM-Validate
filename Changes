@@ -1,24 +1,8 @@
-Revision history for OTRS::OPM::Validate
+Revision history for OPM::Validate
 ========================================
 
-0.05   2021-03-13 11:38:00
+1.00   2021-03-14 08:48:00
 
-    * Deprecate OTRS::OPM::Validate. Development will be done as OPM::Validate as we support
+    * Renamed OTRS::OPM::Validate to OPM::Validate as we support
       Znuny and OTOBO as well.
 
-0.04   2021-02-25 12:14:00
-
-    * Support <PackageMerge> Tag
-    * Fix bug: Attributes in <Database(Install|Uninstall|Upgrade)> are optional
-
-0.03   2021-02-23 07:59:00
-
-    * Fix bug in regular expression: Some whitespaces in the XML declaration were not accepted
-
-0.02   2021-01-16 08:27:00
-
-    * CPANtester results showed that this works only with Perl 5.20 and later
-
-0.01   2021-01-15 16:32:00
-
-    * initial release
