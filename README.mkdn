@@ -4,11 +4,11 @@
 
 # NAME
 
-OTRS::OPM::Validate - Validate .opm files
+OTRS::OPM::Validate - Validate .opm files - DEPRECATED
 
 # VERSION
 
-version 0.04
+version 0.05
 
 # SYNOPSIS
 
@@ -23,6 +23,8 @@ version 0.04
     say "It's valid" if $success;
 
 # DESCRIPTION
+
+DEPRECATED - use [OPM::Validate](https://metacpan.org/pod/OPM%3A%3AValidate) instead
 
 _.opm_ files are used as addons for the ((OTRS)) Community Edition. They are
 XML files with specific XML tags.
