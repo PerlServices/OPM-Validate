@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/perlservices/OPM-Validate.svg?branch=master)](https://travis-ci.org/perlservices/OPM-Validate)
-[![Kwalitee status](http://cpants.cpanauthors.org/dist/OPM-Validate.png)](https://cpants.cpanauthors.org/dist/OPM-Validate)
+[![Kwalitee status](https://cpants.cpanauthors.org/dist/OPM-Validate.png)](https://cpants.cpanauthors.org/dist/OPM-Validate)
 [![GitHub issues](https://img.shields.io/github/issues/perlservices/OPM-Validate.svg)](https://github.com/perlservices/OPM-Validate/issues)
 
 # NAME
@@ -8,7 +8,7 @@ OPM::Validate - Validate .opm files
 
 # VERSION
 
-version 1.00
+version 1.10
 
 # SYNOPSIS
 
