@@ -7,6 +7,8 @@ use v5.20;
 use strict;
 use warnings;
 
+# VERSION
+
 my %boundaries = (
     # tag             min max
     CVS          => [ 0,   1],
@@ -234,7 +236,7 @@ sub _grammar {
 
            (?<DATABASE_ATTR>
                (?:Type="(?i:Post|Pre)"(?{++$s{Database}->{Type}; $check->('Database.Type',1)})) |
-               (?:Version="[^"]+"(?{++$s{Database}->{Version}; $check->('Database.Version',$+{database_type} eq 'Upgrade' ? 1 : 0)}))
+               (?:Version="[^"]+"(?{++$s{Database}->{Version}; $check->('Database.Version', 0)}))
            )
 
            (?<DATABASE_TAGS>
@@ -287,7 +289,7 @@ sub _grammar {
 
            (?<TABLE_ATTR>
                (?:Name="([^"]+)"(?{$pos{'Table.Name'} = pos(); ++$s{Table}->{Name}; $check->('Table.Name',1,1)})) |
-               (?:Type="(?i:Post|Pre)"(?{++$s{Table}->{Type}; $check->('Table.Type',1)})) |
+               (?:Type="(?i:Post|Pre)"(?{++$s{Table}->{Type}; $check->('Table.Type',0)})) |
                (?:Version="[^"]+"(?{++$s{Table}->{Version}; $check->('Table.Version',$+{database_type} eq 'Upgrade' ? 1 : 0)}))
            )
 
@@ -355,7 +357,7 @@ sub _grammar {
            )
 
            (?<INSERT_DATA>
-               <Data (?{delete @s{map{'Data.'. $_}qw/Key Type/};})
+               <Data (?{delete @s{map{'Data.'. $_}qw/Key Type Translatable/};})
                    ( \s+ (?&INSERT_DATA_ATTR))+>
                    .*?
                </Data>
@@ -363,6 +365,7 @@ sub _grammar {
 
            (?<INSERT_DATA_ATTR>
                (?:Key=".*?"(?{++$s{'Data.Key'}; $check->('Data.Key',1,1)})) |
+               (?:Translatable="[01]"(?{++$s{'Data.Translatable'}; $check->('Data.Translatable',1)})) |
                (?:Type=".*?"(?{++$s{'Data.Type'}; $check->('Data.Type',1)}))
            )
 
@@ -423,7 +426,7 @@ sub _grammar {
            )
 
            (?<FOREIGN_KEY_DROP>
-               <ForeignKeyDrop ( \s+ Name=".*?")? \s* (?:/>|>\s*</ForeignKeyDrop>)
+               <ForeignKeyDrop ( \s+ (?:Name|ForeignTable)=".*?")? \s* (?:/>|>\s*(?:(?&REFERENCE)\s*)*</ForeignKeyDrop>)
            )
 
            (?<FOREIGN_TABLE>
