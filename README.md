@@ -1,6 +1,7 @@
-[![Build Status](https://travis-ci.org/perlservices/OPM-Validate.svg?branch=master)](https://travis-ci.org/perlservices/OPM-Validate)
 [![Kwalitee status](https://cpants.cpanauthors.org/dist/OPM-Validate.png)](https://cpants.cpanauthors.org/dist/OPM-Validate)
 [![GitHub issues](https://img.shields.io/github/issues/perlservices/OPM-Validate.svg)](https://github.com/perlservices/OPM-Validate/issues)
+[![CPAN Cover Status](https://cpancoverbadge.perl-services.de/OPM-Validate-1.11)](https://cpancoverbadge.perl-services.de/OPM-Validate-1.11)
+[![Cpan license](https://img.shields.io/cpan/l/OPM-Validate.svg)](https://metacpan.org/release/OPM-Validate)
 
 # NAME
 
@@ -8,19 +9,21 @@ OPM::Validate - Validate .opm files
 
 # VERSION
 
-version 1.10
+version 1.11
 
 # SYNOPSIS
 
-    use v5.20;
-    use OPM::Validate;
+```perl
+use v5.20;
+use OPM::Validate;
 
-    my $content = 'content of .opm file';
-    my $success = eval {
-        OPM::Validate->validate( $content );
-    };
+my $content = 'content of .opm file';
+my $success = eval {
+    OPM::Validate->validate( $content );
+};
 
-    say "It's valid" if $success;
+say "It's valid" if $success;
+```
 
 # DESCRIPTION
 
@@ -37,15 +40,17 @@ Currently the error messages might be misleading, this is something we are worki
 
 This checks the given string if it matches the needs. It `die`s if an error occurs and returns `1` otherwise.
 
-    use v5.10;
-    use OPM::Validate;
+```perl
+use v5.10;
+use OPM::Validate;
 
-    my $content = 'content of .opm file';
-    my $success = eval {
-        OPM::Validate->validate( $content );
-    };
+my $content = 'content of .opm file';
+my $success = eval {
+    OPM::Validate->validate( $content );
+};
 
-    say "It's valid" if $success;
+say "It's valid" if $success;
+```
 
 
 
