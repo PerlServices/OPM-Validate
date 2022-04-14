@@ -1,0 +1,29 @@
+#!/usr/bin/perl
+
+use v5.10;
+
+# ABSTRACT: A short script to validate an opm file
+# PODNAME: validate_opm
+
+use strict;
+use warnings;
+
+# VERSION
+
+use OPM::Validate;
+
+my $file    = _check_args() or do{ print_usage() and exit };
+my $content = do { local (@ARGV, $/) = ($file); <> };
+
+OPM::Validate->validate( $content );
+
+sub _check_args {
+    return if !@ARGV;
+    return if !-f $ARGV[0];
+
+    return $ARGV[0];
+}
+
+sub print_usage {
+    say "$0 <path_to_opm>";
+}
