@@ -1,6 +1,6 @@
 [![Kwalitee status](https://cpants.cpanauthors.org/dist/OPM-Validate.png)](https://cpants.cpanauthors.org/dist/OPM-Validate)
 [![GitHub issues](https://img.shields.io/github/issues/perlservices/OPM-Validate.svg)](https://github.com/perlservices/OPM-Validate/issues)
-[![CPAN Cover Status](https://cpancoverbadge.perl-services.de/OPM-Validate-1.12)](https://cpancoverbadge.perl-services.de/OPM-Validate-1.12)
+[![CPAN Cover Status](https://cpancoverbadge.perl-services.de/OPM-Validate-1.13)](https://cpancoverbadge.perl-services.de/OPM-Validate-1.13)
 [![Cpan license](https://img.shields.io/cpan/l/OPM-Validate.svg)](https://metacpan.org/release/OPM-Validate)
 
 # NAME
@@ -9,7 +9,7 @@ OPM::Validate - Validate .opm files
 
 # VERSION
 
-version 1.12
+version 1.13
 
 # SYNOPSIS
 
