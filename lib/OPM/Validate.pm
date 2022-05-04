@@ -347,12 +347,12 @@ sub _grammar {
 
            (?<COLUMN_DROP>
                <ColumnDrop (?{delete $s{Column}})
-                   ( \s+ (?&COLUMN_DROP_ATTR))+ (?:/>|>\s*</ColumnDrop>)
+                   ( \s+ (?&COLUMN_DROP_ATTR))+ \s* (?:/>|>\s*</ColumnDrop>)
                (*COMMIT)
            )
 
            (?<COLUMN_DROP_ATTR>
-               (?:Name=".*?"(?{++$s{Column}->{Name}; $check->('Column.Name',1,1)}))
+               (?:Name="[^"]+?"(?{++$s{Column}->{Name}; $check->('Column.Name',1,1)}))
            )
 
            (?<INSERT>
