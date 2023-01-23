@@ -1,0 +1,33 @@
+name: CI
+
+on: [push, pull_request]
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        perl: [ '5.24', '5.26', '5.28', '5.30', '5.32', '5.34', '5.36', '5.36-threaded' ]
+        # See options here: https://hub.docker.com/_/perl/tags
+
+    runs-on: ubuntu-latest
+    name: perl ${{matrix.perl}}
+    container: perl:${{matrix.perl}}
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Show perl version
+      run: |
+        perl -v
+    - name: Install modules
+      run: |
+        cpanm --quiet --notest Dist::Zilla
+        dzil authordeps | cpanm --quiet --notest
+        # Note that Dist::Zilla::PluginBundle::PERLSRVDE requires perl >= 5.24, this is the
+        #  reason why we don't test for perl < 5.24 here
+        dzil listdeps --develop | cpanm --quiet --notest
+    - name: Build module and execute tests
+      env:
+        AUTHOR_TESTING: 1
+        RELEASE_TESTING: 1
+      run: |
+        dzil test
